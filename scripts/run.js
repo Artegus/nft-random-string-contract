@@ -1,15 +1,14 @@
-
-
+const contractRandomString = "randomString"
 const main = async () => {
-    const nftContractFactory = await ethers.getContractFactory('wojakNFT');
+    const nftContractFactory = await ethers.getContractFactory(contractRandomString);
     const nftContract = await nftContractFactory.deploy();
     await nftContract.deployed();
     console.log("Contract deployed to:", nftContract.address);
 
-    let txn = await nftContract.makeWojakNFT();
+    let txn = await nftContract.makeARandomString();
     await txn.wait();
 
-    txn = await nftContract.makeWojakNFT();
+    txn = await nftContract.makeARandomString();
     await txn.wait();
     
 };
